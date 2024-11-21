@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="f1">
+        <input type="text" id="t1">
+        <input type="checkbox" id="c1">
+        <input type="button" value="press me" id="btn">
+    </form>
+    <script>
+        document.getElementById("btn").onclick=function(){
+            let flag=confirm("Выполнить действия?");
+            if (flag){
+                document.getElementById("c1").checked=true;
+                document.getElementById("t1").value="hello";
+            }
+            else
+                document.getElementById("f1").reset();
+        }
+    </script>
+
+    <form action="">
+        <input type="text" id="txt1">
+        <p>
+            <input type="button" id="lock" value="lock">
+            <input type="button" id="unlock" value="unlock">
+        </p>
+    </form>
+    <script>
+        document.getElementById("lock").onclick=function(){
+            document.getElementById("txt1").disabled=true;
+        }
+        document.getElementById("unlock").onclick=function(){
+            document.getElementById("txt1").disabled=false;
+        }
+    </script>
+
+    <form action="" id="111">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </form>
+    <script>
+        document.getElementById("111").onmouseover=function()
+        {
+            let elem=event.target;
+            if (elem.type=="text")
+            {
+                elem.focus();
+                elem.value=elem.type;
+            }
+        }
+        document.getElementById("111").onmouseout=function()
+        {
+            let elem=event.target;
+            if (elem.type=="text")
+            {
+                elem.blur();
+                elem.value="";
+            }
+        }
+
+    </script>
+
+    <form action="">
+        <p>
+            <input type="checkbox" name="" checked>
+            <input type="text" >
+        </p>
+        <p>
+            <input type="checkbox" name="" checked>
+            <input type="text" >
+        </p>
+        <p>
+            <input type="checkbox" name="" checked>
+            <input type="text" >
+        </p>
+    </form>
+    <script>
+        let checks=document.querySelectorAll("input[type=checkbox]");
+        for(let i=0;i<checks.length;i++){
+            checks[i].onclick=function(){
+                checks[i].nextElementSibling.hidden=!checks[i].checked;
+            }
+        }
+    </script>
+
+</body>
+</html>
